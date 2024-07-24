@@ -39,8 +39,10 @@ const UserSchema = new mongoose.Schema({         //  a schema is defined.......
 
 
 
+const User = mongoose.model("Users", UserSchema)
+User.createIndexes()
 
-module.exports = mongoose.model("Users", UserSchema)
+module.exports = User
 
 
 
