@@ -4,7 +4,7 @@
 
 const mongoose = require("mongoose")
 
-const mongo_URI = "mongodb://localhost:27017"               //  database connection string..........
+const mongo_URI = "mongodb://localhost:27017/inotebook"               //  database connection string..........
 
 
 const connectToMongo = () => {

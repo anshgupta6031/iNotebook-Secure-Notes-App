@@ -3,17 +3,19 @@
 
 
 const express = require('express')
+const User = require("../models/User")
 const router = express.Router()
 
 
-router.get('/', (req, res) => {                         // define the home page route           //  goto http://localhost:3000/api/auth
+//  creating a user using : POST "http://localhost:3000/api/auth"
 
-    let obj = {
-        name: "Ansh",
-        age: 21,
-    }
+router.post('/', (req, res) => {                         // define the home page route
+    console.log(req.body)
 
-    res.json(obj)
+    const user = User(req.body)
+    user.save()
+
+    res.send(req.body)
 })
 
 
