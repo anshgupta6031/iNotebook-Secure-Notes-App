@@ -7,7 +7,7 @@ const User = require("../models/User")
 const { body, validationResult } = require('express-validator')
 // const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const fetchuser = require("../middleware/fetchUser")
+const fetchuser = require("../middleware/fetchUser")                //  a middleware which embeds the auth-token to the request object and verifies if the user requesting for data has the right token or not.........
 
 
 const router = express.Router()
