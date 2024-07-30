@@ -56,7 +56,7 @@ const NoteState = (props) => {
             "description": "Please wake up early",
             "tag": "important",
             "date": "2024-07-26T10:53:19.257Z"
-        },{
+        }, {
             "_id": "66a3801bcbc293691dfsse98bf26",
             "user": "66a37ee5841c7d56640c9511",
             "title": "new note",
@@ -79,7 +79,7 @@ const NoteState = (props) => {
             "description": "Please wake up early",
             "tag": "important",
             "date": "2024-07-26T10:53:19.257Z"
-        },{
+        }, {
             "_id": "66a3801bcbc2dfs93691e98bf26",
             "user": "66a37ee5841c7d56640c9511",
             "title": "new note",
@@ -102,7 +102,7 @@ const NoteState = (props) => {
             "description": "Please wake up early",
             "tag": "important",
             "date": "2024-07-26T10:53:19.257Z"
-        },{
+        }, {
             "_id": "66a3801bcxvxccbc293691e98bf26",
             "user": "66a37ee5841c7d56640c9511",
             "title": "new note",
@@ -134,6 +134,9 @@ const NoteState = (props) => {
 
     //  Function to add a note.........
     const addNote = (title, description, tag) => {
+
+        //  Todo : API Call
+
         const note = {
             "_id": "66a3801bcbc293691edsfsfdqs98bf26",
             "user": "66a37ee5841c7d56640c9511",
@@ -148,8 +151,12 @@ const NoteState = (props) => {
 
 
     //  Function to delete a note.........
-    const deleteNote = () => {
+    const deleteNote = (id) => {
+        
+        //  Todo : API Call
 
+        const new_notes = notes.filter((note) => { return note._id !== id })
+        setNotes(new_notes)
     }
 
 

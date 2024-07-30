@@ -10,7 +10,7 @@ import NoteItem from './NoteItem'
 
 export default function Notes() {
 
-    const { notes, addNote } = useContext(noteContext)
+    const { notes } = useContext(noteContext)
 
     return (
 

@@ -2,9 +2,14 @@
 
 
 
-import React from 'react'
+import React, { useContext } from 'react'
+import noteContext from '../context/notes/noteContext'
+
 
 export default function NoteItem(props) {
+
+    const { deleteNote } = useContext(noteContext)
+
     return (
 
         <div className="col-md-3 my-3">
@@ -15,7 +20,7 @@ export default function NoteItem(props) {
 
                         <div>
                             <i className="fa-regular fa-pen-to-square mx-2"></i>
-                            <i className="fa-regular fa-trash-can mx-2"></i>
+                            <i className="fa-regular fa-trash-can mx-2" onClick={()=>{deleteNote(props.note._id)}}></i>
                         </div>
                     </div>
 
