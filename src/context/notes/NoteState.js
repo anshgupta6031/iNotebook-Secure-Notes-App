@@ -12,7 +12,6 @@ const NoteState = (props) => {
 
     const initialNotes = []
 
-
     const [notes, setNotes] = useState(initialNotes)
 
 
@@ -30,7 +29,7 @@ const NoteState = (props) => {
         })
 
         const json = await response.json()
-        setNotes(json)
+        setNotes(json)                  //  to set the front end....
     }
 
 
@@ -50,8 +49,10 @@ const NoteState = (props) => {
             body: JSON.stringify({ title, description, tag })
         })
 
-        // const json = await response.json()
+        const json = await response.json()
+        console.log(json)
 
+        //  Adding in front end....
         const note = {
             "_id": "66a3801bcbc293691edsfsfdqs98bf26",
             "user": "66a37ee5841c7d56640c9511",
@@ -79,8 +80,10 @@ const NoteState = (props) => {
             },
         })
 
-        // const json = await response.json()
+        const json = await response.json()
+        console.log(json)
 
+        //  Removing note from the front end....
         const new_notes = notes.filter((note) => { return note._id !== id })
         setNotes(new_notes)
     }
@@ -90,31 +93,23 @@ const NoteState = (props) => {
     //  Function to Edit a note.........
     const editNote = async (id, title, description, tag) => {
 
-        //  API Call
+        //API Call
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-            method: "POST",
+            method: "PUT",
 
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZhMzdlZTU4NDFjN2Q1NjY0MGM5NTExIn0sImlhdCI6MTcyMTk5MDg4NX0.BLau7Ok1MH1BwnNKBr6Hb25HoM7Z-Ps4ZRnHq4MAaxk",
             },
 
-            body: JSON.stringify(title, description, tag)
+            body: JSON.stringify({ title, description, tag }),
         })
 
-        // const json = await response.json()
+        const json = await response.json();
+        console.log(json);
 
-
-        //  logic to edit in client....
-        for (let i = 0; i < notes.length; i++) {
-            const note = notes[i];
-
-            if (note._id === id) {
-                note.title = title
-                note.description = description
-                note.tag = tag
-            }
-        }
+        //  to update the front end
+        getNotes();
     }
 
 

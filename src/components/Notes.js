@@ -10,7 +10,7 @@ import NoteItem from './NoteItem'
 
 export default function Notes() {
 
-    const { notes, getNotes } = useContext(noteContext)
+    const { notes, getNotes, editNote } = useContext(noteContext)
 
     useEffect(() => {
         getNotes()
@@ -20,11 +20,11 @@ export default function Notes() {
 
     const ref = useRef(null)
 
-    const [note, setNote] = useState({ etitle: "", edescription: "", etag: "" })
+    const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etag: "" })
 
     const updateNote = (currentNote) => {
         ref.current.click()
-        setNote({ etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
+        setNote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
     }
 
     const onChange = (event) => {
@@ -32,8 +32,7 @@ export default function Notes() {
     }
 
     const handleClick = (event) => {
-        event.preventDefault()
-        console.log("Updating the note....", note)
+        editNote(note.id, note.etitle, note.edescription, note.etag)
     }
 
 
@@ -69,7 +68,7 @@ export default function Notes() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={handleClick}>Update Note</button>
+                            <button type="button" className="btn btn-primary" data-bs-dismiss='modal' onClick={handleClick}>Update Note</button>
                         </div>
                     </div>
                 </div>
