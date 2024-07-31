@@ -16,9 +16,9 @@ export default function NoteItem(props) {
             <div className="card">
                 <div className="card-body">
                     <div className="d-flex align-items-baseline justify-content-between">
-                        <h5 className="card-title">{props.note.title}</h5>
+                        <div><h5 className="card-title">{props.note.title}</h5></div>
 
-                        <div>
+                        <div className='d-flex'>
                             <i className="fa-regular fa-pen-to-square mx-2" onClick={() => { props.updateNote(props.note) }}></i>
                             <i className="fa-regular fa-trash-can mx-2" onClick={() => { deleteNote(props.note._id) }}></i>
                         </div>
