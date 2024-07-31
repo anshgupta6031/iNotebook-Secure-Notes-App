@@ -10,14 +10,11 @@ const NoteState = (props) => {
 
     const host = "http://localhost:5000"
 
-    const initialNotes = []
-
-    const [notes, setNotes] = useState(initialNotes)
+    const [notes, setNotes] = useState([])
 
 
     //  Function to get all notes.........
     const getNotes = async () => {
-
         //  API Call
         const response = await fetch(`${host}/api/notes/fetchallnotes`, {
             method: "GET",
@@ -36,7 +33,6 @@ const NoteState = (props) => {
 
     //  Function to add a note.........
     const addNote = async (title, description, tag) => {
-
         //  API Call
         const response = await fetch(`${host}/api/notes/addnote`, {
             method: "POST",
@@ -58,7 +54,6 @@ const NoteState = (props) => {
 
     //  Function to delete a note.........
     const deleteNote = async (id) => {
-
         //  API Call
         const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
             method: "DELETE",
@@ -81,7 +76,6 @@ const NoteState = (props) => {
 
     //  Function to Edit a note.........
     const editNote = async (id, title, description, tag) => {
-
         //API Call
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
             method: "PUT",
