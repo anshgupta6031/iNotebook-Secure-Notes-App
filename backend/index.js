@@ -4,18 +4,14 @@
 
 const connectToMongo = require("./db")
 const express = require('express')
+const cors = require('cors')
 
 connectToMongo()
 const app = express()
 const port = 5000
 
 
-
-app.get('/', (req, res) => {
-    res.send("Hello Ansh...")
-})
-
-
+app.use(cors())                                     //  a middleware to allow the browser to access data from the maongo db server.....
 app.use(express.json())                             //  middleware........
 
 
