@@ -34,7 +34,7 @@ export default function SignUp(props) {
 
         if (json.success) {
             //  save the auth-token and redirect......
-            localStorage.setItem("token", json.authtoken)
+            localStorage.setItem("token", json.authToken)
             navigate("/")
             props.showAlert("Account Created Successfully", "success")
         }
@@ -46,8 +46,9 @@ export default function SignUp(props) {
 
 
     return (
-        <div className='container my-5'>
-            <form onSubmit={handleSubmit}>
+        <div className='container my-4'>
+            <h3>Create an account to use iNotebook</h3>
+            <form className='my-3' onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>
                     <input type="text" className="form-control" value={credentials.name} onChange={onChange} id="name" name='name' aria-describedby="emailHelp" required />
