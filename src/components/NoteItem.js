@@ -20,7 +20,7 @@ export default function NoteItem(props) {
 
                         <div className='d-flex'>
                             <i className="fa-regular fa-pen-to-square mx-2" onClick={() => { props.updateNote(props.note) }}></i>
-                            <i className="fa-regular fa-trash-can mx-2" onClick={() => { deleteNote(props.note._id); props.showAlert("Note Deleted Successfully", "success") }}></i>
+                            <i className="fa-regular fa-trash-can mx-2" onClick={() => { deleteNote(props.note._id); window.scrollTo(0, 0); props.showAlert("Note Deleted Successfully", "success") }}></i>
                         </div>
                     </div>
 

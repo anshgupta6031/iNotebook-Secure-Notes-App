@@ -55,6 +55,7 @@ const NoteState = (props) => {
     //  Function to delete a note.........
     const deleteNote = async (id) => {
         //  API Call
+        // eslint-disable-next-line
         const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
             method: "DELETE",
 
@@ -63,9 +64,6 @@ const NoteState = (props) => {
                 "auth-token": localStorage.getItem("token"),
             },
         })
-
-        const json = await response.json()
-        console.log(json)
 
         //  Removing note from the front end....
         const new_notes = notes.filter((note) => { return note._id !== id })
@@ -77,6 +75,7 @@ const NoteState = (props) => {
     //  Function to Edit a note.........
     const editNote = async (id, title, description, tag) => {
         //API Call
+        // eslint-disable-next-line
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
             method: "PUT",
 
@@ -87,9 +86,6 @@ const NoteState = (props) => {
 
             body: JSON.stringify({ title, description, tag }),
         })
-
-        const json = await response.json();
-        console.log(json);
 
         //  to update the front end
         getNotes();

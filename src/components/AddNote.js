@@ -19,6 +19,7 @@ export default function AddNote(props) {
     const handleClick = (event) => {
         event.preventDefault()
         addNote(note.title, note.description, note.tag)
+        window.scrollTo(0, 0)
         props.showAlert("Note Added Successfully", "success")
         setNote({ title: "", description: "", tag: "" })
     }

@@ -42,6 +42,7 @@ export default function Notes(props) {
 
     const handleClick = (event) => {
         editNote(note.id, note.etitle, note.edescription, note.etag)
+        window.scrollTo(0, 0)
         props.showAlert("Note Updated Successfully", "success")
     }
 

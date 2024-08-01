@@ -30,7 +30,6 @@ export default function SignUp(props) {
         })
 
         const json = await response.json()
-        console.log(json)
 
         if (json.success) {
             //  save the auth-token and redirect......
